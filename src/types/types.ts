@@ -8,7 +8,7 @@ export type TUser = {
     image?:string;
 }
 
-type TAuthor = {
+export type TAuthor = {
     following: boolean;
     image: string;
     username: string;
