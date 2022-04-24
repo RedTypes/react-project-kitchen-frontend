@@ -1,10 +1,10 @@
 import React, { FC, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { EditProfileSettings, FollowUserButton } from "./index";
-import ArticleList from "../components/ArticleList";
+import { EditProfileSettings, FollowUserButton } from "../index";
+import ArticleList from "../../components/ArticleList";
 import { useSelector, useDispatch } from 'react-redux';
-import { FOLLOW_USER, UNFOLLOW_USER } from "../constants/actionTypes";
-import agent from "../agent";
+import { FOLLOW_USER, UNFOLLOW_USER } from "../../constants/actionTypes";
+import agent from "../../agent";
 
 export const Profile: FC = () => {
     const dispatch = useDispatch()
