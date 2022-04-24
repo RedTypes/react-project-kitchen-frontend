@@ -1,4 +1,4 @@
-import { ServerStreamFileResponseOptionsWithError } from "http2";
+
 
 export type TUser = {
     email: string;
@@ -6,7 +6,7 @@ export type TUser = {
     username: string;
 }
 
-type TAuthor = {
+export type TAuthor = {
     following: boolean;
     image: string;
     username: string;
