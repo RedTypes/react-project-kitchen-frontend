@@ -1,9 +1,11 @@
-import { ServerStreamFileResponseOptionsWithError } from "http2";
+
 
 export type TUser = {
     email: string;
     token: string;
     username: string;
+    bio?: string;
+    image?:string;
 }
 
 type TAuthor = {
