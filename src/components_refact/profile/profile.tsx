@@ -1,12 +1,11 @@
 import React, { FC, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { EditProfileSettings, FollowUserButton, ArticleList } from "../index";
-
 import { useSelector, useDispatch } from 'react-redux';
 import { FOLLOW_USER, UNFOLLOW_USER } from "../../constants/actionTypes";
 import agent from "../../agent";
 import { useEffect } from "react";
-import { fetchProfile, fetchArticles } from "../../services/api";
+import { fetchProfile, fetchArticles, postFollowProfile, deleteFollowProfile} from "../../services/api";
 import { PROFILE_PAGE_LOADED, PROFILE_PAGE_UNLOADED } from "../../constants";
 
 
@@ -36,14 +35,14 @@ export const Profile: FC = () => {
     const onFollow = () => {
         dispatch({
             type: FOLLOW_USER,
-            payload: agent.Profile.follow(username)
+            payload: postFollowProfile(username)
         })
     }
 
     const onUnfollow = () => {
         dispatch({
             type: UNFOLLOW_USER,
-            payload: agent.Profile.unfollow(username)
+            payload:deleteFollowProfile(username)
           })
     }
 
