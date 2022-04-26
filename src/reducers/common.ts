@@ -17,13 +17,21 @@ import {
   REGISTER_PAGE_UNLOADED
 } from '../constants/actionTypes';
 
-const defaultState = {
+type TInitialState = {
+  appName: string,
+  token: string | null,
+  viewChangeCounter: number,
+  redirectTo?: string,
+  currentUser?: {}
+}
+
+const initialState: TInitialState = {
   appName: 'Practicum Project Kitchen',
   token: null,
   viewChangeCounter: 0
 };
 
-export default (state = defaultState, action) => {
+export default (state = initialState, action: any) => {
   switch (action.type) {
     case APP_LOAD:
       return {
@@ -43,6 +51,7 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         redirectTo: action.error ? null : '/',
+        // Зачем удаляем данные о юзере? если например ошибка в незаполненном поле
         currentUser: action.error ? null : action.payload.user
       };
     case LOGIN:
@@ -50,7 +59,7 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         redirectTo: action.error ? null : '/',
-        token: action.error ? null : action.payload.user.token,
+        token: action.error ? null : action.payload?.user.token,
         currentUser: action.error ? null : action.payload.user
       };
     case DELETE_ARTICLE:

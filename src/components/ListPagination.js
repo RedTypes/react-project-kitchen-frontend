@@ -1,7 +1,7 @@
 import React from 'react';
 import agent from '../agent';
 import { connect } from 'react-redux';
-import { SET_PAGE } from '../constants/actionTypes';
+import { SET_PAGE } from '../constants/actionTypes.ts';
 
 const mapDispatchToProps = dispatch => ({
   onSetPage: (page, payload) =>
@@ -9,6 +9,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const ListPagination = props => {
+
+ 
   if (props.articlesCount <= 10) {
     return null;
   }
