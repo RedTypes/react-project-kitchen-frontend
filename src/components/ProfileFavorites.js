@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import {
   PROFILE_PAGE_LOADED,
   PROFILE_PAGE_UNLOADED
-} from '../constants/actionTypes.ts';
+} from '../constants/actionTypes';
 
 const mapDispatchToProps = dispatch => ({
   onLoad: (pager, payload) =>

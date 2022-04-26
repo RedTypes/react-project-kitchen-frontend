@@ -7,18 +7,7 @@ import {
   UPDATE_FIELD_AUTH
 } from '../constants/actionTypes';
 
-interface TInitialState {
-  inProgress: boolean;
-  readonly errors: string[] | string;
-  readonly [key: string]: any;
-}
-
-const initialState: TInitialState = {
-  inProgress: false,
-  errors: []
-}
-
-export default (state = initialState, action: any) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case LOGIN:
     case REGISTER:

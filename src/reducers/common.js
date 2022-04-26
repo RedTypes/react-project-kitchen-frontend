@@ -17,21 +17,13 @@ import {
   REGISTER_PAGE_UNLOADED
 } from '../constants/actionTypes';
 
-type TInitialState = {
-  appName: string,
-  token: string | null,
-  viewChangeCounter: number,
-  redirectTo?: string,
-  currentUser?: {}
-}
-
-const initialState: TInitialState = {
+const defaultState = {
   appName: 'Practicum Project Kitchen',
   token: null,
   viewChangeCounter: 0
 };
 
-export default (state = initialState, action: any) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
     case APP_LOAD:
       return {
@@ -59,7 +51,7 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         redirectTo: action.error ? null : '/',
-        token: action.error ? null : action.payload?.user.token,
+        token: action.error ? null : action.payload.user.token,
         currentUser: action.error ? null : action.payload.user
       };
     case DELETE_ARTICLE:
