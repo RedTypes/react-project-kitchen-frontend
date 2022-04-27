@@ -116,7 +116,10 @@ import {
   followProfileDeleteFailed,
 } from './apiSlice';
 
-import { setSelectedLanguage } from './system';
+import {
+  onLogin,
+  onLogout,
+} from './systemSlice';
 
 export {
   setTitle,
@@ -216,5 +219,6 @@ export {
   followProfileDeleteRequested,
   followProfileDeleteSucceeded,
   followProfileDeleteFailed,
-  setSelectedLanguage,
+  onLogin,
+  onLogout,
 };
