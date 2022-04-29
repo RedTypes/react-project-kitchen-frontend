@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../../../services/hooks';
 import { DELETE_COMMENT } from '../../../constants';
 import { deleteComment } from '../../../services/api';
 
