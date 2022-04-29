@@ -3,7 +3,11 @@ import {
   setDescription,
   setBody,
   setTags,
+  setArticle,
+  setTaglist,
   resetArticle,
+  deleteTag,
+  setImage
 } from './articleFormSubSlice';
 
 import {
@@ -221,4 +225,8 @@ export {
   followProfileDeleteFailed,
   onLogin,
   onLogout,
+  setArticle,
+  setTaglist,
+  deleteTag,
+  setImage
 };

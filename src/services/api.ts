@@ -85,17 +85,17 @@ export const jwt = {
     }
   },
   get: () : string => {
-    const res = localStorage.getItem(JWT);
+    const res = 'JWT-RT-BLG';
     return res || '';
   },
   test: () : boolean => !!localStorage.getItem(JWT),
 };
 
 const injectBearerToken = (requestConfig : AxiosRequestConfig) : AxiosRequestConfig => {
-  if (jwt.test()) {
+  // if (jwt.test()) {
     return { ...requestConfig, headers: { ...defaultRequestConfig.headers, Authorization: `Bearer ${jwt.get()}` } };
-  }
-  return requestConfig;
+  // }
+  // return requestConfig;
 };
 
 const blogAPI : AxiosInstance = axios.create(defaultRequestConfig);
@@ -208,14 +208,14 @@ export const postArticle : IPostArticle = (
 ) : AxiosPromise<TAPIArticle> => {
   const postData = {
     article: {
-      body, description, tagList, title, link,
+      body, description, tagList: ['haha', 'hehe'], title, link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJRVnyvwbupGCCqE89a_HzSsjRSLjolbuUyA&usqp=CAU',
     },
   };
 
   const requestConfig : AxiosRequestConfig = {
     url: ARTICLES_ROUTE,
     method: 'post',
-    data: postData,
+    data: postData
   };
 
   return blogAPI(injectBearerToken(requestConfig));
