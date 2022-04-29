@@ -12,7 +12,7 @@ const patchCurrentUserThunk: AppThunk = (data: {
 }) => async (dispatch: AppDispatch) => {
   try {
     dispatch(settingsPatchRequested());
-    const response = await patchCurrentUser(data);
+    await patchCurrentUser(data);
     dispatch(resetFormProfile());
     dispatch(settingsPatchSucceeded());
   } catch (error) {

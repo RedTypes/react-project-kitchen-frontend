@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type TAPIState = {
   successMessage: string | null,
-  errorMessage: Array<string> | null,
+  errorMessage: string | null,
   isUserRegistering: boolean,
   isUserFetching: boolean,
   isUserLoggingIn: boolean,

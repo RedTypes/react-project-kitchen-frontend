@@ -30,7 +30,8 @@ export interface IPatchUser {
     email?: string,
     password?: string,
     bio?: string,
-    image?:string) : AxiosPromise<TAPIAuth>;
+    image?:string,
+  }) : AxiosPromise<TAPIAuth>;
 }
 
 export interface IFetchArticles {

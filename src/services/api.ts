@@ -140,19 +140,20 @@ export const loginUser : ILoginUser = (
   return blogAPI(requestConfig);
 };
 
-export const patchCurrentUser : IPatchUser = (
+export const patchCurrentUser : IPatchUser = ({
+  username, email, password, bio, image,
+}: {
   username?: string,
   email?: string,
   password?: string,
   bio?: string,
-  image?: string,
-) : AxiosPromise<TAPIAuth> => {
+  image?:string,
+}) : AxiosPromise<TAPIAuth> => {
   const patchData : TAPIPatchUser = {
     user: {
       username, email, password, bio, image,
     },
   };
-  console.log(patchData);
   const requestConfig: AxiosRequestConfig = {
     url: USER_ROUTE,
     data: patchData,
@@ -161,7 +162,7 @@ export const patchCurrentUser : IPatchUser = (
   if (!username && !email && !bio && !image) {
     return fetchCurrentUser();
   }
-  return blogAPI(requestConfig);
+  return blogAPI(injectBearerToken(requestConfig));
 };
 
 export const fetchPublicFeed : IFetchArticles = (
