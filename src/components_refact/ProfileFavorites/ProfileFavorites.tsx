@@ -1,31 +1,25 @@
-//import { Profile, mapStateToProps } from './Profile';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-//import agent from '../agent';
-import { connect, useSelector, useDispatch } from 'react-redux'/*
-import {
-    PROFILE_PAGE_LOADED,
-    PROFILE_PAGE_UNLOADED
-} from '../constants/actionTypes.ts';*/
-export const ProfileFavorites = (props: any) => {
+import { useSelector, useDispatch } from '../../services/hooks';
+import {useNavigate} from 'react-router-dom'
+
+export const ProfileFavorites = () => {
+    const { isLoggedIn } = useSelector((state) => state.system);
+    const { username } = useSelector((state) => state.profile);
     const dispatch = useDispatch()
-    /*
-    this.props.onLoad(page => agent.Articles.favoritedBy(this.props.match.params.username, page), Promise.all([
-        agent.Profile.get(this.props.match.params.username),
-        agent.Articles.favoritedBy(this.props.match.params.username)
-      ]));*/
-      useEffect(() => {
-        //dispatch({ type: PROFILE_PAGE_LOADED, pager, payload })
-    }, [])
+    const navigate = useNavigate()
     useEffect(() => {
+        if(isLoggedIn){
+            navigate('/')
+        }
       //  dispatch({ type: PROFILE_PAGE_UNLOADED })
-    }, [])
+    }, [isLoggedIn])
     return (
         <ul className="nav nav-pills outline-active">
             <li className="nav-item">
                 <Link
                     className="nav-link"
-                    to={`/@${props.profile.username}`}>
+                    to={`/@${username}`}>
                     My Articles
                 </Link>
             </li>
@@ -33,7 +27,7 @@ export const ProfileFavorites = (props: any) => {
             <li className="nav-item">
                 <Link
                     className="nav-link active"
-                    to={`/@${props.profile.username}/favorites`}>
+                    to={`/@${username}/favorites`}>
                     Favorited Articles
                 </Link>
             </li>
