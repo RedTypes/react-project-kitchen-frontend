@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type TAPIState = {
   successMessage: string | null,
-  errorMessage: string | null,
+  errorMessage: Array<string> | null,
   isUserRegistering: boolean,
   isUserFetching: boolean,
   isUserLoggingIn: boolean,
@@ -21,7 +21,8 @@ type TAPIState = {
   isCommentDeleting: boolean,
   isProfileFetching: boolean,
   isFollowProfilePosting: boolean,
-  isFollowProfileDeleting: boolean
+  isFollowProfileDeleting: boolean,
+  isSettingsPatching: boolean
 };
 
 const initialState: TAPIState = {
@@ -46,6 +47,7 @@ const initialState: TAPIState = {
   isProfileFetching: false,
   isFollowProfilePosting: false,
   isFollowProfileDeleting: false,
+  isSettingsPatching: false,
 };
 
 const apiSlice = createSlice({
@@ -229,6 +231,15 @@ const apiSlice = createSlice({
     followProfileDeleteFailed: (state: TAPIState, action: PayloadAction<string>) => ({
       ...state, isFollowProfileDeleting: false, errorMessage: action.payload,
     }),
+    settingsPatchRequested: (state: TAPIState) => ({
+      ...state, isSettingsPatching: true,
+    }),
+    settingsPatchSucceeded: (state: TAPIState) => ({
+      ...state, isSettingsPatching: false,
+    }),
+    settingsPatchFailed: (state: TAPIState, action: PayloadAction<string>) => ({
+      ...state, isSettingsPatching: false, errorMessage: action.payload,
+    }),
   },
 });
 
@@ -293,5 +304,8 @@ export const {
   followProfileDeleteRequested,
   followProfileDeleteSucceeded,
   followProfileDeleteFailed,
+  settingsPatchFailed,
+  settingsPatchRequested,
+  settingsPatchSucceeded,
 } = apiSlice.actions;
 export default apiReducer;

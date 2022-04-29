@@ -122,7 +122,7 @@ export const fetchCurrentUser : IFetchUser = () : AxiosPromise<TAPIUser> => {
     url: USER_ROUTE,
     method: 'get',
   };
-  return blogAPI(requestConfig);
+  return blogAPI(injectBearerToken(requestConfig));
 };
 
 export const loginUser : ILoginUser = (
@@ -140,24 +140,26 @@ export const loginUser : ILoginUser = (
   return blogAPI(requestConfig);
 };
 
-export const patchCurrentUser : IPatchUser = (
-  username?: string,
-  email?: string,
-  password?: string,
-  bio?: string,
-  image?: string,
-) : AxiosPromise<TAPIUser> => {
-  const patchData : TAPIPatchUser = {
+export const patchCurrentUser: IPatchUser = ({
+  username,
+  email,
+  password,
+  bio,
+  image,
+}): AxiosPromise<TAPIUser> => {
+  console.log(username);
+  const patchData: TAPIPatchUser = {
     user: {
       username, email, password, bio, image,
     },
   };
-  const requestConfig : AxiosRequestConfig = {
+  console.log(patchData);
+  const requestConfig: AxiosRequestConfig = {
     url: USER_ROUTE,
     data: patchData,
     method: 'put',
   };
-  if (!username && !email && !password && !bio && !image) {
+  if (!username && !email && !bio && !image) {
     return fetchCurrentUser();
   }
   return blogAPI(requestConfig);
