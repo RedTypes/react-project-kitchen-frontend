@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+
 type TAPIState = {
   successMessage: string | null,
   errorMessage: Array<string> | null,
@@ -309,3 +310,6 @@ export const {
   settingsPatchSucceeded,
 } = apiSlice.actions;
 export default apiReducer;
+
+
+

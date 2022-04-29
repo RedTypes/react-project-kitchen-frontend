@@ -3,7 +3,11 @@ import {
   setDescription,
   setBody,
   setTags,
+  setArticle,
+  setTaglist,
   resetArticle,
+  deleteTag,
+  setImage
 } from './articleFormSubSlice';
 
 import {
@@ -34,7 +38,9 @@ import {
   clearAll,
 } from './allSlice';
 
-import { setUser, clearUser } from './userSlice';
+import { setUser, clearUser, setCurrentUser } from './userSlice';
+
+
 
 import {
   setViewFeed,
@@ -119,9 +125,11 @@ import {
 import {
   onLogin,
   onLogout,
+
 } from './systemSlice';
 
 export {
+  setCurrentUser,
   setTitle,
   setDescription,
   setBody,
@@ -221,4 +229,8 @@ export {
   followProfileDeleteFailed,
   onLogin,
   onLogout,
+  setArticle,
+  setTaglist,
+  deleteTag,
+  setImage
 };
