@@ -1,15 +1,28 @@
-import { AppThunk } from "../store/store.types"
-import { commentDeleteRequested, commentDeleteSucceeded, commentDeleteFailed } from '../store'
+import { AppDispatch, AppThunk, RootState } from '../store/store.types'
+import { commentDeleteRequested, commentDeleteSucceeded, commentDeleteFailed,  setViewCommentsFeed } from '../store'
 import { deleteComment } from "../services/api"
+import { AxiosError, AxiosResponse } from 'axios';
+import { TAPIError, TAPIArticle } from '../services/api.types';
+import { batch } from 'react-redux';
+import makeErrorMessage from '../services/helpers/make-error-message';
 
-export const deleteCommentThunk:AppThunk = (slug:string, commentId:string) => {
-    return function (dispatch, getState) {
-        dispatch(commentDeleteRequested());
-        deleteComment(slug, commentId).then(res => {
-            if (res.status === 200) {
-                const { view } = getState()
-                const newCommentsFeed = view.commentsFeed
-            }
+export const deleteCommentThunk: AppThunk = (slug: string, commentId: string) => async (dispatch: AppDispatch, getState: () => RootState) => {
+    dispatch(commentDeleteRequested());
+    try {
+        const {status} = await  deleteComment(slug, commentId) as AxiosResponse<null>
+        const { view: { commentsFeed } } = getState();
+        const newCommentsFeed = commentsFeed?.filter(comment => {
+            comment.id !== commentId
         })
+        batch(() => {
+            dispatch(commentDeleteSucceeded());
+            dispatch(setViewCommentsFeed(newCommentsFeed ?? []));
+        })
+    } catch (error) {
+        dispatch(commentDeleteFailed(makeErrorMessage(error as AxiosError<TAPIError>)))
     }
 }
+
+
+
+
