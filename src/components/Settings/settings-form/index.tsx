@@ -30,9 +30,7 @@ const SettingsForm: FC<{ [key: string]: any }> = () => {
     if (password) {
       userData.password = password;
     }
-    dispatch(patchCurrentUserThunk({
-      ...userData,
-    }));
+    dispatch(patchCurrentUserThunk());
   };
 
   return (
