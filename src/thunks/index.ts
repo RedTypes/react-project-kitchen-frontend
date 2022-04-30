@@ -6,8 +6,8 @@ import patchCurrentUserThunk from './patch-current-user-thunk';
 
 import followProfileThunk from './follow-profile-thunk';
 import unfollowProfileThunk from './unfollow-profile-thunk';
-import { deleteArticleThunk } from './delete-article-thunk';
-import { deleteCommentThunk } from './delete-comment-thunk';
+import deleteArticleThunk from './delete-article-thunk';
+import deleteCommentThunk from './delete-comment-thunk';
 
 export {
   loadInitialDataThunk,

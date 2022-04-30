@@ -6,7 +6,7 @@ import { TAPIError, TAPIArticle } from '../services/api.types';
 import { batch } from 'react-redux';
 import makeErrorMessage from '../services/helpers/make-error-message';
 
-export const deleteCommentThunk: AppThunk = (slug: string, commentId: string) => async (dispatch: AppDispatch, getState: () => RootState) => {
+const deleteCommentThunk: AppThunk = (slug: string, commentId: string) => async (dispatch: AppDispatch, getState: () => RootState) => {
     dispatch(commentDeleteRequested());
     try {
         const {status} = await  deleteComment(slug, commentId) as AxiosResponse<null>
@@ -23,6 +23,4 @@ export const deleteCommentThunk: AppThunk = (slug: string, commentId: string) =>
     }
 }
 
-
-
-
+export default deleteCommentThunk;
