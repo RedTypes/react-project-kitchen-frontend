@@ -14,7 +14,7 @@ import {
   TAPIComments,
   TAPIComment,
   TAPIProfile,
-  TAPIAuth,
+  TAPIAuth
 } from './api.types';
 import {
   IDeleteArticle,

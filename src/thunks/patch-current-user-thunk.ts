@@ -15,12 +15,22 @@ const patchCurrentUserThunk: AppThunk = () => async (
   dispatch(settingsPatchRequested());
   const profile = getState().forms.profile ?? {};
   // Type Guards
-  const user = profile.username || '';
-  const mail = profile.email || '';
-  const pass = profile.password || '';
-  const about = profile.bio || '';
-  const link = profile.image || '';
+  const userData: {
+    username?: string;
+    email?: string;
+    bio?: string;
+    image?: string;
+    password?: string;
+  } = {
+    username: profile.username || '',
+    email: profile.email || '',
+    bio: profile.bio || '',
+    image: profile.image || ''
+  }
 
+  if (profile.password) {
+    userData.password = profile.password
+  }
   try {
     const {
       data: {
@@ -29,7 +39,7 @@ const patchCurrentUserThunk: AppThunk = () => async (
         },
       },
     } = await patchCurrentUser({
-      username: user, email: mail, password: pass, bio: about, image: link,
+      ...userData
     });
     batch(() => {
       dispatch(setUser({

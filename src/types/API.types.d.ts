@@ -7,6 +7,7 @@ import {
   TAPIProfile,
   TAPITags,
   TAPIUser,
+  TAPIAuth
 } from '../services/api.types';
 import { TTags } from './types';
 
