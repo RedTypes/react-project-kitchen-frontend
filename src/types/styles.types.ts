@@ -13,7 +13,7 @@ export type TTheme = {
   secondaryText: string,
   markedText: string,
   dividerColor: string,
-  bgPrimary:string,
+  bgPrimary: string,
   bgHoverUserMenu: string,
   bgActiveUserMenu: string,
   button: {
@@ -30,11 +30,13 @@ export type TTheme = {
   thirdLevelHeadingMobile: TFontProperties,
   fourthLevelHeadingMobile: TFontProperties,
   fifthLevelHeadingMobile: TFontProperties,
-  textSans: TFontProperties,
-  text: TFontProperties,
+  text18Sans: TFontProperties,
+  text16Sans: TFontProperties,
+  text12Sans: TFontProperties,
+  text18: TFontProperties,
 };
 export type TThemes = {
-  [key:string]: TTheme;
+  [key: string]: TTheme;
 };
 
 export type TFontProperties = {
@@ -67,9 +69,9 @@ export type TAvatarSizes = 'large' | 'small';
 export type TAvatarIconProps = {
   size: TAvatarSizes;
   name: string;
-  image: string;
+  image?: string;
   distance?: number;
-  color: string;
+  color?: string;
 };
 
 export type TAvatarButtonProps = {
@@ -80,6 +82,6 @@ export type TAvatarButtonProps = {
 };
 
 export type TIconProps = {
-  color: string;
+  color?: string;
   distance?: number;
 };

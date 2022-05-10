@@ -56,7 +56,7 @@ export const EditIcon = styled(EditPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 export const DeleteIcon = styled(BasketPic)<TIconProps>`
@@ -65,14 +65,14 @@ export const DeleteIcon = styled(BasketPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 const DefaultAvatar = styled(AvatarPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -82,6 +82,7 @@ const BasicAvatar = styled.img<IBasicAvatar>`
   margin-right: ${({ distance }) => distance ?? 0}px;
   border-width: ${({ bordered, borderProps: { width } }) => getAvatarBorderProp(bordered, width)}px;
   border-color: ${({ bordered, borderProps: { color } }) => getAvatarBorderProp(bordered, color)};
+  border-style: solid;
 `;
 
 export const AvatarIcon : FC<TAvatarIconProps> = ({
@@ -123,7 +124,7 @@ export const AsterixIcon = styled(AsterixPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -133,7 +134,7 @@ export const CheckIcon = styled(CheckPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -143,7 +144,7 @@ export const HomeIcon = styled(HomePic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -153,7 +154,7 @@ export const LikeIcon = styled(LikePic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -163,7 +164,7 @@ export const NoLikeIcon = styled(NoLikePic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -173,7 +174,7 @@ export const PaperClipIcon = styled(PaperclipPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -183,7 +184,7 @@ export const LoginIcon = styled(LoginPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -193,7 +194,7 @@ export const LogoutIcon = styled(LogoutPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 
@@ -203,7 +204,7 @@ export const PlusIcon = styled(PlusPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
 export const MinusIcon = styled(MinusPic)<TIconProps>`
@@ -212,6 +213,6 @@ export const MinusIcon = styled(MinusPic)<TIconProps>`
   display: block;
   margin-right: ${({ distance }) => distance ?? 0}px;
   & > path {
-    stroke: ${({ color }) => color};
+    stroke: ${({ color }) => color || 'none'};
     }
 `;
