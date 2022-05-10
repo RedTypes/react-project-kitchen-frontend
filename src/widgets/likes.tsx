@@ -1,18 +1,7 @@
 import React, { FC } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { LikeIcon } from '../ui-lib';
-import { TFontProperties } from '../types/styles.types';
-
-interface ILikesProps {
-  likesCounterValue: number,
-  handleClick: (e: React.MouseEvent<SVGSVGElement>) => void,
-  favorite: boolean
-}
-
-type TLikesCounterProps = {
-  font: TFontProperties,
-  color: string
-};
+import { TLikesCounterProps, TLikesProps } from '../types/styles.types';
 
 const LikesCounter = styled.p<TLikesCounterProps>`
   margin: 0;
@@ -26,7 +15,7 @@ const LikesContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Likes: FC<ILikesProps> = ({ likesCounterValue, handleClick, favorite }) => {
+const Likes: FC<TLikesProps> = ({ likesCounterValue, handleClick, favorite }) => {
   const theme = useTheme();
 
   return (

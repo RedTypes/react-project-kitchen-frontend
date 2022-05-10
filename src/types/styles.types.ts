@@ -85,3 +85,22 @@ export type TIconProps = {
   color?: string;
   distance?: number;
 };
+
+export type TAuthorProps = {
+  userName: string,
+  createAt: Date,
+  imageSrc?: string,
+};
+
+export type TLikesProps = {
+  likesCounterValue: number,
+  handleClick: (e: React.MouseEvent<SVGSVGElement>) => void,
+  favorite: boolean
+};
+
+export type TLikesCounterProps = {
+  font: TFontProperties,
+  color: string
+};
+
+export type TAuthorWithLike = TAuthorProps & TLikesProps;
