@@ -72,7 +72,15 @@ export type TAvatarIconProps = {
   image?: string;
   distance?: number;
   color?: string;
-};
+
+} | {
+  size: TAvatarSizes;
+  name: string;
+  image?: string;
+  distance?: number;
+  color: string;
+}
+
 
 export type TAvatarButtonProps = {
   onClick: MouseEventHandler<HTMLButtonElement>;
